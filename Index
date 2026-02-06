@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For KochiPochi</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe4e1;
+            font-family: sans-serif;
+            overflow: hidden; 
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .recipient-name {
+            font-size: 1.8rem;
+            color: #ff4d6d;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #d02090;
+            font-size: 2rem;
+            margin: 10px 20px 30px 20px;
+        }
+
+        .heart-icon {
+            font-size: 5rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #adb5bd;
+            color: white;
+            position: relative; 
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="main-content">
+        <div class="recipient-name">KochiPochi</div>
+        <div class="heart-icon">❤️</div>
+        <h1>Will you be my valentine? 🔥</h1>
+
+        <div class="button-group">
+            <button id="yesBtn" onclick="celebrate()">Yes</button>
+            <button id="noBtn" onmouseover="moveButton()" ontouchstart="moveButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            // Move the button to a random spot on the screen
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.getElementById('main-content').innerHTML = `
+                <h1 style="color: #ff4d6d; font-size: 2.5rem;">Yay! It's a date! 🥰</h1>
+                <div style="font-size: 5rem;">✨💖🔥🌹</div>
+            `;
+        }
+    </script>
+</body>
+</html>
